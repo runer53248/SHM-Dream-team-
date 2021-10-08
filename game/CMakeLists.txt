@@ -3,7 +3,7 @@ set(SRC_LIST
 )
 
 add_executable(${PROJECT_NAME}-debug ${SRC_LIST})
-target_compile_options(${PROJECT_NAME}-debug PUBLIC -Wall -Werror -Wpedantic -Wextra -g)
+target_compile_options(${PROJECT_NAME}-debug PRIVATE ${COMPILER_DEBUG_FLAGS})
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
-target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror -Wpedantic -Wextra -O3)
+target_compile_options(${PROJECT_NAME} PRIVATE ${COMPILER_RELEASE_FLAGS})
