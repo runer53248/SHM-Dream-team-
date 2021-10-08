@@ -5,8 +5,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(SHM)
 
-set(COMPILER_DEBUG_FLAGS -Wall -Werror -Wpedantic -Wextra -g -O0)
-set(COMPILER_RELEASE_FLAGS -Wall -Werror -Wpedantic -Wextra -g0 -O3)
+set(FLAGS -Wall -Werror -Wpedantic -Wextra)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+if(CMAKE_BUILD_TYPE MATCHES Release)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/Release/)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/Release/)
+else()
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/Debug/)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/Debug/)
+endif()
+
 
 include_directories(include)
 add_subdirectory(game)
