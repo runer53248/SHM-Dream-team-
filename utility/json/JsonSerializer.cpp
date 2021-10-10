@@ -11,12 +11,12 @@ size_t JsonSerializer::getSize(const std::string& blockName) {
     return 0;
 }
 
-void JsonSerializer::save(const std::string& filename){
+void JsonSerializer::save(const std::string& filename) {
     std::ofstream file(filename);
     file << baseJson.dump(2);
 }
 
-void JsonSerializer::load(const std::string& filename){
+void JsonSerializer::load(const std::string& filename) {
     std::ifstream file(filename);
     file >> baseJson;
 }

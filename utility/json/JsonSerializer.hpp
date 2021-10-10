@@ -5,6 +5,7 @@
 #include <memory>
 #include <optional>
 #include "Json.hpp"
+#include "JsonConvert.hpp"
 
 //Note: maybe should insert feature in namespace
 
@@ -39,7 +40,7 @@ public:
         try {
             //Json json = baseJson[blockName][index];
             Json json = baseJson.at(blockName).at(index);
-            return from_json<T>(json);
+            return JsonConvert::from_json<T>(json);
         } catch (const nlohmann::json::exception& err) {
             std::cout << "\nError: get(" << std::quoted(blockName) << ", " << index << ") couldn't create object from json - return null_opt.\n\n";
         }
@@ -63,7 +64,7 @@ public:
             return;
         }
         try {
-            Json jsonObject = to_json(object);
+            Json jsonObject = JsonConvert::to_json(object);
             baseJson[blockName].push_back(convert(jsonObject));
         } catch (const nlohmann::json::exception& err) {
             std::cout << "\nError: put(" << std::quoted(blockName) << ") fail to push object into json - action ignored.\n\n";
@@ -75,16 +76,6 @@ public:
     static void clear();
 
 private:
-    template <typename T>
-    static T from_json(const Json& j) {
-        throw nlohmann::json::exception("Error: try to use from_json to unimplemmented type.");
-    }
-
-    template <typename T>
-    static Json to_json(const T& object) {
-        throw nlohmann::json::exception("Error: try to use to_json to unimplemmented type.");
-    }
-
     static const nlohmann::json convert(const Json& json) {
         return json.json;
     }
