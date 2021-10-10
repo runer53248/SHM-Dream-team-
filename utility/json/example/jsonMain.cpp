@@ -18,7 +18,6 @@ public:
 
 template <>
 Json JsonConvert::to_json(const std::unique_ptr<ExampleObject>& object) {
-    //Note: to_json is private in JsonSerializer and will check is object empty before call this metod (not need double checking)
     static int id = 0;
     return Json{
         {"ID", id++},

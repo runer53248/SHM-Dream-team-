@@ -7,8 +7,6 @@
 #include "Json.hpp"
 #include "JsonConvert.hpp"
 
-//Note: maybe should insert feature in namespace
-
 class JsonSerializer {
 public:
     static size_t getSize(const std::string& blockName);
@@ -16,7 +14,6 @@ public:
     template <typename T>
     static std::optional<T> getValue(const std::string& blockName, const std::string& name) {
         try {
-            //return baseJson[blockName][name].get<T>();
             return baseJson.at(blockName).at(name).get<T>();
         } catch (const nlohmann::json::exception& err) {
             std::cout << "\nError: get(" << std::quoted(blockName) << ", " << std::quoted(name) << ") couldn't get value from json - return null_opt.\n\n";
@@ -27,7 +24,6 @@ public:
     template <typename T>
     static std::optional<T> getValue(const std::string& blockName, size_t index, const std::string& name) {
         try {
-            //return baseJson[blockName][index][name].get<T>();
             return baseJson.at(blockName).at(index).at(name).get<T>();
         } catch (const nlohmann::json::exception& err) {
             std::cout << "\nError: get(" << std::quoted(blockName) << ", " << index << ", " << std::quoted(name) << ") couldn't get value from json - return null_opt.\n\n";
@@ -38,7 +34,6 @@ public:
     template <typename T>
     static std::optional<T> get(const std::string& blockName, size_t index) {
         try {
-            //Json json = baseJson[blockName][index];
             Json json = baseJson.at(blockName).at(index);
             return JsonConvert::from_json<T>(json);
         } catch (const nlohmann::json::exception& err) {
