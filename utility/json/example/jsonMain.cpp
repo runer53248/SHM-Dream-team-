@@ -19,12 +19,22 @@ public:
 template <>
 Json JsonConvert::to_json(const std::unique_ptr<ExampleObject>& object) {
     static int id = 0;
-    return Json{
-        {"ID", id++},
-        {"x", object->x},
-        {"y", object->y},
-        {"name", object->name},
-    };
+
+    Json json;
+
+    json.putValue("ID", id++);
+    json.putValue("x", object->x);
+    json.putValue("y", object->y);
+    json.putValue("name", object->name);
+    
+    return json;
+
+    // return Json{
+    //     {"ID", id++},
+    //     {"x", object->x},
+    //     {"y", object->y},
+    //     {"name", object->name},
+    // };
 }
 
 template <>
