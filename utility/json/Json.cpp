@@ -9,6 +9,6 @@ size_t Json::getBlockArraySize(const std::string& blockName) const {
     return json.at(blockName).size();
 }
 
-size_t Json::getArraySize(size_t index) const {
+size_t Json::getArraySize() const {
     return json.size();
 }

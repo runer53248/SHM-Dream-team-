@@ -10,7 +10,7 @@ public:
     Json(const nlohmann::json& json);
 
     size_t getBlockArraySize(const std::string& blockName) const;
-    size_t getArraySize(size_t index) const;
+    size_t getArraySize() const;
 
     template <typename T>
     T getValue(const std::string& name) const {
