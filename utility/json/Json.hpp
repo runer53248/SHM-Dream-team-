@@ -6,7 +6,6 @@ class JsonSerializer;
 class Json {
 public:
     Json() = default;
-    Json(nlohmann::json::initializer_list_t init);
     Json(const nlohmann::json& json);
 
     size_t getBlockArraySize(const std::string& blockName) const;

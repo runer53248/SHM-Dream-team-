@@ -1,7 +1,5 @@
 #include "Json.hpp"
 
-Json::Json(nlohmann::json::initializer_list_t init)
-    : json(init) {}
 Json::Json(const nlohmann::json& json)
     : json(json) {}
 

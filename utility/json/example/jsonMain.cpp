@@ -28,13 +28,6 @@ Json JsonConvert::to_json(const std::unique_ptr<ExampleObject>& object) {
     json.putValue("name", object->name);
     
     return json;
-
-    // return Json{
-    //     {"ID", id++},
-    //     {"x", object->x},
-    //     {"y", object->y},
-    //     {"name", object->name},
-    // };
 }
 
 template <>
