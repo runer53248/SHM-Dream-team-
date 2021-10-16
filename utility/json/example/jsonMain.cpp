@@ -58,13 +58,22 @@ int main() {
 
     JsonSerializer::put("ships", ship);
 
-    JsonSerializer::save("Ship.json");
+    auto isSaved = JsonSerializer::save("Ship.json");
+    if(isSaved){
+        std::cout << "Save success.\n";
+    }
+
     JsonSerializer::clear();
 
-    JsonSerializer::load("Ship.json");
+    auto isLoaded = JsonSerializer::load("Ship.json");
+    if(isLoaded){
+        std::cout << "Load success.\n";
+    }
 
     auto size = JsonSerializer::getSize("ships");
+
     if (size) {
+        std::cout << "Number of ships in file : " << size << '\n';
         auto isShip = JsonSerializer::get<std::unique_ptr<Ship>>("ships", 0);
         if (auto ship = std::move(isShip.value())) {
             std::cout << "ship name = " << ship->name << '\n';

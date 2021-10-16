@@ -33,7 +33,7 @@
 *.app
 
 # Build
-/build
+build
 
 .vscode
 Testing
