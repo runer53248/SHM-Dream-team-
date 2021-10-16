@@ -2,38 +2,30 @@
 
 #include <utility>
 
+enum class Axis { X, Y };
+
 class Coordinates {
 public:
-    struct CoordX {
-        explicit constexpr CoordX(int coordX)
-            : value(coordX) {}
+    template<Axis>
+    struct Coord {
+        explicit constexpr Coord(int coord)
+                : value(coord) {}
 
-        constexpr bool operator==(const CoordX& other) const {
+        constexpr bool operator==(const Coord& other) const {
             return value == other.value;
         }
 
-        int value{0};
+        const int value{};
     };
 
-    struct CoordY {
-        explicit constexpr CoordY(int coordY)
-            : value(coordY) {}
+    constexpr Coordinates(const Coord<Axis::X>& posX, const Coord<Axis::Y>& posY)
+            : posX_(posX), posY_(posY) {}
 
-        constexpr bool operator==(const CoordY& other) const {
-            return value == other.value;
-        }
-
-        int value{0};
-    };
-
-    constexpr Coordinates(const CoordX& posX, const CoordY& posY)
-        : posX_(posX), posY_(posY) {}
-
-    constexpr std::pair<CoordX, CoordY> getPosition() const {
-        return std::make_pair(posX_, posY_);
+    constexpr bool operator==(const Coordinates& other) const {
+        return posX_ == other.posX_ && posY_ == other.posY_;
     }
 
 private:
-    const CoordX posX_;
-    const CoordY posY_;
+    const Coord<Axis::X> posX_;
+    const Coord<Axis::Y> posY_;
 };
