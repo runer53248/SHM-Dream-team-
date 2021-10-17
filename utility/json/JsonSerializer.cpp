@@ -11,14 +11,34 @@ size_t JsonSerializer::getSize(const std::string& blockName) {
     return 0;
 }
 
-void JsonSerializer::save(const std::string& filename) {
-    std::ofstream file(filename);
-    file << baseJson.dump(2);
+bool JsonSerializer::save(const std::string& filename) {
+    try {
+        std::ofstream file(filename);
+        file << baseJson.dump(2);
+        return true;
+    } catch (const nlohmann::json::exception& err){
+        std::cout << "\nError: json throw when dump.\n\n";
+    } catch (const std::ios_base::failure& e){
+        std::cout << "\nError: JsonSerializer::save caught an ios_base::failure.\n"
+                  << "Explanatory string: " << e.what() << ".\n\n";
+    }
+
+    return false;
 }
 
-void JsonSerializer::load(const std::string& filename) {
-    std::ifstream file(filename);
-    file >> baseJson;
+bool JsonSerializer::load(const std::string& filename) {
+    try{
+        std::ifstream file(filename);
+        file >> baseJson;
+        return true;
+    } catch (const nlohmann::json::exception& err){
+        std::cout << "\nError: couldn't load json from file: " << filename << ".\n\n";
+    } catch (const std::ios_base::failure& e){
+        std::cout << "\nError: JsonSerializer::load caught an ios_base::failure.\n"
+                  << "Explanatory string: " << e.what() << ".\n\n";
+    }
+
+    return false;
 }
 
 void JsonSerializer::clear() {
