@@ -1,6 +1,11 @@
+#include "../include/game/Game.hpp"
+
 #include <iostream>
 
 int main() {
-    std::cout << "Hello world\n";
+    Game game;
+    if ( game.init() ) {
+        game.run();
+    }
     return 0;
 }
