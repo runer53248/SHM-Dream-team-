@@ -6,9 +6,9 @@
 
 class IslandInterface {
 public:
-    virtual ~IslandInterface();
+    virtual ~IslandInterface() = default;
 
-    virtual std::string getName() = 0;
-    virtual Coordinates* getCoordinates() = 0;
-    virtual int getLevel() = 0;
+    virtual std::string getName() const = 0;
+    virtual Coordinates* getCoordinates() const = 0;
+    virtual int getLevel() const = 0;
 };
