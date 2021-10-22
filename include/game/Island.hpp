@@ -9,7 +9,6 @@
 class Island : public IslandInterface{
 public:
     Island(std::string& name, std::unique_ptr<Coordinates>& position, int level);
-    ~Island() override;
 
     std::string getName() const override { return name_; }
     Coordinates* getCoordinates() const override { return position_.get(); }

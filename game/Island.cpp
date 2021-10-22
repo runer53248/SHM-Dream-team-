@@ -7,8 +7,3 @@ Island::Island(std::string& name, std::unique_ptr<Coordinates>& position, int le
 {
 
 }
-
-Island::~Island() 
-{ 
-
-}
