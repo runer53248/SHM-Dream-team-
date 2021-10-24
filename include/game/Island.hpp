@@ -8,15 +8,14 @@
 
 class Island : public IslandInterface{
 public:
-    Island(const std::string& name, const Coordinates& position, int level);
-
-    std::string getName() const override { return name_; }
-    Coordinates* getCoordinates() const override { return position_.get(); }
+    Island(const std::string& name, const Coordinates* position, int level);
+    
+    const std::string getName() const override { return name_; }
+    const Coordinates* getCoordinates() const override { return position_; }
     int getLevel() const override { return level_; }
 
 private:
-    std::string name_;
-    Coordinates position_;
+    const std::string name_;
+    const Coordinates* position_;
     int level_;
-
 };
