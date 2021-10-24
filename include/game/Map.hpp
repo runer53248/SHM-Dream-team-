@@ -1,8 +1,6 @@
 #pragma once
 #include "IslandInterface.hpp"
-#include "../utility/json/JsonSerializer.hpp"
 
-#include <iostream>
 #include <memory>
 
 struct MapSize {
@@ -13,27 +11,17 @@ struct MapSize {
 //example implementation to show load from json
 class Map {
 public:
-    static std::unique_ptr<Map> create() { 
-        auto map = std::make_unique<Map>(); 
-        // until JsonConvert specialization is not writen
-        if(auto x = JsonSerializer::getValue<size_t>( "Map", "width" )){
-            if(auto y = JsonSerializer::getValue<size_t>( "Map", "height" )){
-                map->setSize(x.value(), y.value());
-            }
-        }
-        return map;
-    }
+    //will load data from global json
+    static std::unique_ptr<Map> create();
 
-    Map() { std::cout << "Map()\n"; }
-    ~Map() { std::cout << "~Map()\n"; }
+    ~Map();
 
-    MapSize getSize() const { return size_; }
+    MapSize getSize() const;
 
-    void setSize( size_t x, size_t y ) {
-        size_.x = x;
-        size_.y = y;
-    }
+    void setSize( size_t x, size_t y );
 
 private:
+    Map();
+
     MapSize size_;
 };
