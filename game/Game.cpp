@@ -1,4 +1,6 @@
 #include "../include/game/Game.hpp"
+#include "../include/game/Map.hpp"
+#include "../include/game/Player.hpp"
 
 #include <iostream>
 

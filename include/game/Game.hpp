@@ -1,11 +1,12 @@
 #pragma once
-#include "../../include/game/Map.hpp"
-#include "../../include/game/Player.hpp"
 #include "../utility/json/JsonSerializer.hpp"
 
 #include <iostream>
 #include <memory>
 #include <string>
+
+class Map;
+class Player;
 
 class Game {
     template <typename T = std::unique_ptr<Game>> 
