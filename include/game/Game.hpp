@@ -24,7 +24,9 @@ public:
 private:
     Game();
 
-    std::string name_ = "SHM game.";
+    void mainLoop();
+
+    std::string name_ = "SHM game";
     std::unique_ptr<Player> player;
     std::unique_ptr<Map> map;
 };
