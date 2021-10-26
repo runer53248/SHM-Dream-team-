@@ -2,6 +2,8 @@ set(SRC_LIST
     main.cpp
     Game.cpp
     Island.cpp
+    Player.cpp
+    Map.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})

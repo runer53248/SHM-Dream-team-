@@ -1,7 +1,10 @@
 {
   "Game": [
     {
-      "GameName": "SHM game."
+      "GameName": "SHM game"
+    },
+    {
+      "GameName": "SHM gambling games"
     }
   ],
   "Islands": [
