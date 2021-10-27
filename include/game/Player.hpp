@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 //example implementation to show load from json
 class Player {
@@ -14,7 +15,7 @@ public:
     std::string getName() const;
 
     void setMoney( size_t money );
-    void setName( std::string name );
+    void setName( const std::string& name );
 
 private:
     Player();

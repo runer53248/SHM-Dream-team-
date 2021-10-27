@@ -24,4 +24,4 @@ size_t Player::getMoney() const { return money_; }
 std::string Player::getName() const { return name_; }
 
 void Player::setMoney( size_t money ) { money_ = money; }
-void Player::setName( std::string name ) { name_ = name; }
+void Player::setName( const std::string& name ) { name_ = name; }
