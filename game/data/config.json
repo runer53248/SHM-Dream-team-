@@ -1,0 +1,75 @@
+{
+  "Game": [
+    {
+      "GameName": "SHM game"
+    },
+    {
+      "GameName": "SHM gambling games"
+    }
+  ],
+  "Islands": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "Island": null
+    }
+  ],
+  "Map": {
+    "height": 10,
+    "name": "default",
+    "width": 10
+  },
+  "MapIsland": [
+    {
+      "island": "Majorka"
+    },
+    {
+      "island": "Rodos"
+    },
+    {
+      "island": "Bali"
+    },
+    {
+      "island": "Grand Canari"
+    }
+  ],
+  "Options": [
+    {
+      "name": "exit"
+    },
+    {
+      "name": "load game"
+    },
+    {
+      "name": "new game"
+    }
+  ],
+  "Player": {
+    "Day": 0,
+    "Money": 10000,
+    "Name": "player1"
+  },
+  "Ships": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "Ship": null
+    }
+  ]
+}

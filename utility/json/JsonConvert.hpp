@@ -9,12 +9,12 @@ class JsonConvert {
 
 private:
     template <typename T>
-    static T from_json(const Json& j) {
+    static T from_json([[maybe_unused]]const Json& json) {
         throw nlohmann::json::exception("Error: try to use from_json to unimplemmented type.");
     }
 
     template <typename T>
-    static Json to_json(const T& object) {
+    static Json to_json([[maybe_unused]]const T& object) {
         throw nlohmann::json::exception("Error: try to use to_json to unimplemmented type.");
     }
 };
